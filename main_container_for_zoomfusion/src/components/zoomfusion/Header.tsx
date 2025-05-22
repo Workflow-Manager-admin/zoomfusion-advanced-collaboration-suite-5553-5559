@@ -32,14 +32,19 @@ export default function Header({ meetingInfo, onEndMeeting }: HeaderProps) {
   return (
     <header className="bg-neutral-900 px-4 py-2 flex items-center justify-between border-b border-neutral-800">
       {/* Left side - Meeting info */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center">
+        <img 
+          src="/zoomfusion-logo.svg" 
+          alt="ZoomFusion Logo" 
+          className="h-7 mr-4 hidden sm:block" 
+        />
         <div className="flex flex-col">
-          <h1 className="text-lg font-semibold">
+          <h1 className="text-lg font-semibold truncate max-w-[200px] sm:max-w-xs">
             {meetingInfo?.title || 'ZoomFusion Meeting'}
           </h1>
-          <div className="flex text-sm text-neutral-400 space-x-4">
-            <span>ID: {meetingInfo?.id || 'N/A'}</span>
-            <span>Started: {meetingInfo ? formatTime(meetingInfo.startTime) : 'N/A'}</span>
+          <div className="flex flex-col sm:flex-row text-xs sm:text-sm text-neutral-400 sm:space-x-4">
+            <span className="truncate">ID: {meetingInfo?.id || 'N/A'}</span>
+            <span className="hidden sm:inline">Started: {meetingInfo ? formatTime(meetingInfo.startTime) : 'N/A'}</span>
             <span>Duration: {getMeetingDuration()}</span>
           </div>
         </div>
