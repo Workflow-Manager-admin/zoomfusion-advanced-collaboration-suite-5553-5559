@@ -1,0 +1,16 @@
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main text -->
+  <path d="M11 8H30L11 31H30" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 8H48L39 19H48M39 19L39 31" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 8H64C68 8 71 11 71 15C71 19 68 22 64 22H55V8ZM55 22V31" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 8V24C76 28 79 31 83 31C87 31 90 28 90 24V8" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M95 8V31M95 19H108M108 8V31" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M115 8V31M115 8H128M115 19.5H125M115 31H128" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M133 31V8H146C150 8 153 11 153 15C153 19 150 22 146 22H133" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M158 8V31M158 8H171M158 19.5H168M158 31H171" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 8V31M176 8H189M176 19.5H186" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Video camera icon -->
+  <path d="M22 13.5C22 12.6716 21.3284 12 20.5 12H9.5C8.67157 12 8 12.6716 8 13.5V22.5C8 23.3284 8.67157 24 9.5 24H20.5C21.3284 24 22 23.3284 22 22.5V13.5Z" stroke="white" stroke-width="1.5"/>
+  <path d="M22 15L25 13V23L22 21" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
