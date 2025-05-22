@@ -78,6 +78,7 @@ export interface VideoAreaProps {
   participants: Participant[];
   activeSpeaker?: Participant;
   layout: 'gallery' | 'speaker' | 'sidebar';
+  onLayoutChange?: (layout: 'gallery' | 'speaker' | 'sidebar') => void;
 }
 
 // Props for collaboration tools component
