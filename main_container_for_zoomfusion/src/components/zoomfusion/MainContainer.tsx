@@ -141,33 +141,49 @@ export default function MainContainer({ className = '' }: MainContainerProps) {
 
   return (
     <div className={`flex flex-col h-screen w-full bg-neutral-950 text-white ${className}`}>
-      {/* Header with meeting controls */}
-      <Header meetingInfo={meetingInfo} onEndMeeting={handleEndMeeting} />
-      
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar with participants and tools */}
-        <Sidebar 
-          participants={participants} 
-          collaborationTools={collaborationTools} 
-          onToolSelect={handleToolSelect} 
-        />
-        
-        {/* Main content area */}
-        <div className="flex-1 flex flex-col">
-          {/* Video conferencing area */}
-          <VideoArea 
-            participants={participants} 
-            activeSpeaker={activeSpeaker} 
-            layout={layout}
-            onLayoutChange={changeLayout}
+      {isLoading ? (
+        <div className="flex flex-col items-center justify-center h-screen w-full">
+          <img 
+            src="/zoomfusion-logo.svg" 
+            alt="ZoomFusion Logo" 
+            className="h-16 mb-6 animate-pulse" 
           />
-          
-          {/* Collaboration tools area - conditionally rendered when a tool is active */}
-          {activeTool && (
-            <CollaborationTools activeTool={activeTool} />
-          )}
+          <div className="text-xl font-semibold mb-4">Loading ZoomFusion</div>
+          <div className="w-64 h-2 bg-neutral-800 rounded-full overflow-hidden">
+            <div className="h-full bg-sky-600 animate-[loading_1.5s_ease-in-out_infinite]" style={{ width: '70%' }}></div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {/* Header with meeting controls */}
+          <Header meetingInfo={meetingInfo} onEndMeeting={handleEndMeeting} />
+          
+          <div className="flex flex-1 overflow-hidden">
+            {/* Sidebar with participants and tools */}
+            <Sidebar 
+              participants={participants} 
+              collaborationTools={collaborationTools} 
+              onToolSelect={handleToolSelect} 
+            />
+            
+            {/* Main content area */}
+            <div className="flex-1 flex flex-col">
+              {/* Video conferencing area */}
+              <VideoArea 
+                participants={participants} 
+                activeSpeaker={activeSpeaker} 
+                layout={layout}
+                onLayoutChange={changeLayout}
+              />
+              
+              {/* Collaboration tools area - conditionally rendered when a tool is active */}
+              {activeTool && (
+                <CollaborationTools activeTool={activeTool} />
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
