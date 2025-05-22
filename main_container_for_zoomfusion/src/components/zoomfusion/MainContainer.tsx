@@ -52,60 +52,71 @@ export default function MainContainer({ className = '' }: MainContainerProps) {
 
   // Mock data for initial render
   useEffect(() => {
-    // Sample host participant
-    const host: Participant = {
-      id: '1',
-      name: 'John Doe',
-      isHost: true,
-      isSpeaking: false,
-      isVideoOn: true,
-      isAudioOn: true,
-    };
-
-    // Sample participants
-    const sampleParticipants: Participant[] = [
-      host,
-      {
-        id: '2',
-        name: 'Jane Smith',
-        isHost: false,
+    // Simulate loading time
+    const loadingTimer = setTimeout(() => {
+      // Sample host participant
+      const host: Participant = {
+        id: '1',
+        name: 'John Doe',
+        isHost: true,
         isSpeaking: false,
         isVideoOn: true,
         isAudioOn: true,
-      },
-      {
-        id: '3',
-        name: 'Mike Johnson',
-        isHost: false,
-        isSpeaking: false,
-        isVideoOn: false,
-        isAudioOn: true,
-      },
-    ];
+      };
 
-    // Set sample meeting info
-    const sampleMeetingInfo: MeetingInfo = {
-      id: 'meeting-123',
-      title: 'Team Sync Meeting',
-      host: host,
-      participants: sampleParticipants,
-      startTime: new Date(),
-      isRecording: false,
-    };
+      // Sample participants
+      const sampleParticipants: Participant[] = [
+        host,
+        {
+          id: '2',
+          name: 'Jane Smith',
+          isHost: false,
+          isSpeaking: false,
+          isVideoOn: true,
+          isAudioOn: true,
+        },
+        {
+          id: '3',
+          name: 'Mike Johnson',
+          isHost: false,
+          isSpeaking: false,
+          isVideoOn: false,
+          isAudioOn: true,
+        },
+      ];
 
-    setParticipants(sampleParticipants);
-    setActiveSpeaker(host);
-    setMeetingInfo(sampleMeetingInfo);
+      // Set sample meeting info
+      const sampleMeetingInfo: MeetingInfo = {
+        id: 'meeting-123',
+        title: 'Team Sync Meeting',
+        host: host,
+        participants: sampleParticipants,
+        startTime: new Date(),
+        isRecording: false,
+      };
+
+      setParticipants(sampleParticipants);
+      setActiveSpeaker(host);
+      setMeetingInfo(sampleMeetingInfo);
+      setIsLoading(false);
+    }, 1500);
 
     // Simulate active speaker changes
     const speakerInterval = setInterval(() => {
-      const speakerIndex = Math.floor(Math.random() * sampleParticipants.length);
-      const newSpeaker = { ...sampleParticipants[speakerIndex], isSpeaking: true };
-      setActiveSpeaker(newSpeaker);
+      if (!isLoading) {
+        const speakerIndex = Math.floor(Math.random() * participants.length);
+        if (participants.length > 0) {
+          const newSpeaker = { ...participants[speakerIndex], isSpeaking: true };
+          setActiveSpeaker(newSpeaker);
+        }
+      }
     }, 5000);
 
-    return () => clearInterval(speakerInterval);
-  }, []);
+    return () => {
+      clearTimeout(loadingTimer);
+      clearInterval(speakerInterval);
+    };
+  }, [isLoading, participants]);
 
   // Handle collaboration tool selection
   const handleToolSelect = (tool: CollaborationTool) => {
