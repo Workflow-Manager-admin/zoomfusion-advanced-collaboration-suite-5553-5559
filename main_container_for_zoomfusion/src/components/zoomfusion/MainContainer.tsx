@@ -29,6 +29,11 @@ export default function MainContainer({ className = '' }: MainContainerProps) {
   // State for layout preference
   const [layout, setLayout] = useState<'gallery' | 'speaker' | 'sidebar'>('gallery');
   
+  // Function to change layout
+  const changeLayout = (newLayout: 'gallery' | 'speaker' | 'sidebar') => {
+    setLayout(newLayout);
+  };
+  
   // State for collaboration tools
   const [collaborationTools, setCollaborationTools] = useState<CollaborationTool[]>([
     { id: '1', type: 'whiteboard', name: 'Whiteboard', icon: 'pencil', isActive: false },
