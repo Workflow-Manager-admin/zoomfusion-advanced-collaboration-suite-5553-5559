@@ -15,6 +15,34 @@ import { VideoAreaProps, Participant } from '@/types/zoomfusion';
 export default function VideoArea({ participants, activeSpeaker, layout }: VideoAreaProps) {
   return (
     <div className="flex-1 bg-neutral-950 p-2 overflow-hidden">
+      {/* Layout controls */}
+      <div className="flex justify-end mb-2 space-x-2">
+        <button 
+          className={`p-1.5 rounded ${layout === 'gallery' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
+          title="Gallery View"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        </button>
+        <button 
+          className={`p-1.5 rounded ${layout === 'speaker' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
+          title="Speaker View"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v8a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z" />
+          </svg>
+        </button>
+        <button 
+          className={`p-1.5 rounded ${layout === 'sidebar' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
+          title="Sidebar View"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      
       <div className={`h-full w-full ${getLayoutClass(layout)}`}>
         {layout === 'speaker' && activeSpeaker ? (
           <>
