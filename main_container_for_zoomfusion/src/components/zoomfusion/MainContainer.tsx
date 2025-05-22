@@ -144,7 +144,8 @@ export default function MainContainer({ className = '' }: MainContainerProps) {
           <VideoArea 
             participants={participants} 
             activeSpeaker={activeSpeaker} 
-            layout={layout} 
+            layout={layout}
+            onLayoutChange={changeLayout}
           />
           
           {/* Collaboration tools area - conditionally rendered when a tool is active */}
