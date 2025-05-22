@@ -34,10 +34,13 @@ export default function Header({ meetingInfo, onEndMeeting }: HeaderProps) {
     <header className="bg-neutral-900 px-4 py-2 flex items-center justify-between border-b border-neutral-800">
       {/* Left side - Meeting info */}
       <div className="flex items-center">
-        <img 
+        <Image
           src="/zoomfusion-logo.svg" 
-          alt="ZoomFusion Logo" 
-          className="h-7 mr-4 hidden sm:block" 
+          alt="ZoomFusion Logo"
+          width={120}
+          height={28}
+          className="mr-4 hidden sm:block" 
+          priority
         />
         <div className="flex flex-col">
           <h1 className="text-lg font-semibold truncate max-w-[200px] sm:max-w-xs">
