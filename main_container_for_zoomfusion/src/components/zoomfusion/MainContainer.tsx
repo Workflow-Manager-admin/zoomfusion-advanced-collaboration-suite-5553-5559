@@ -17,6 +17,9 @@ import CollaborationTools from './CollaborationTools';
  * Orchestrates the layout and state management for the video conferencing experience.
  */
 export default function MainContainer({ className = '' }: MainContainerProps) {
+  // State for loading
+  const [isLoading, setIsLoading] = useState(true);
+  
   // State for participants
   const [participants, setParticipants] = useState<Participant[]>([]);
   
