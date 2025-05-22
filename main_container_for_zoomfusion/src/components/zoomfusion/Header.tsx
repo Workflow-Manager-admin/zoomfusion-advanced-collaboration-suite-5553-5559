@@ -4,6 +4,7 @@
  */
 "use client";
 
+import Image from 'next/image';
 import { HeaderProps } from '@/types/zoomfusion';
 
 // PUBLIC_INTERFACE
