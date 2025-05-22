@@ -12,12 +12,13 @@ import { VideoAreaProps, Participant } from '@/types/zoomfusion';
  * VideoArea component for displaying participant video streams.
  * Supports different layout modes: gallery, speaker, and sidebar.
  */
-export default function VideoArea({ participants, activeSpeaker, layout }: VideoAreaProps) {
+export default function VideoArea({ participants, activeSpeaker, layout, onLayoutChange }: VideoAreaProps) {
   return (
     <div className="flex-1 bg-neutral-950 p-2 overflow-hidden">
       {/* Layout controls */}
       <div className="flex justify-end mb-2 space-x-2">
         <button 
+          onClick={() => onLayoutChange?.('gallery')}
           className={`p-1.5 rounded ${layout === 'gallery' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
           title="Gallery View"
         >
@@ -26,6 +27,7 @@ export default function VideoArea({ participants, activeSpeaker, layout }: Video
           </svg>
         </button>
         <button 
+          onClick={() => onLayoutChange?.('speaker')}
           className={`p-1.5 rounded ${layout === 'speaker' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
           title="Speaker View"
         >
@@ -34,6 +36,7 @@ export default function VideoArea({ participants, activeSpeaker, layout }: Video
           </svg>
         </button>
         <button 
+          onClick={() => onLayoutChange?.('sidebar')}
           className={`p-1.5 rounded ${layout === 'sidebar' ? 'bg-sky-600' : 'bg-neutral-800 hover:bg-neutral-700'}`}
           title="Sidebar View"
         >
