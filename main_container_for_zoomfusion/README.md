@@ -1,8 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ZoomFusion: Advanced Collaboration Suite
+
+A comprehensive Zoom integration app that enhances video conferencing experience with advanced collaboration and productivity features.
+
+## Overview
+
+ZoomFusion is built using Next.js and provides a rich set of features to improve virtual meetings and remote collaboration:
+
+- **Video Conferencing** - Multiple layout options including gallery view, speaker view, and sidebar view
+- **Participant Management** - View participants, their status, and control permissions
+- **Collaboration Tools** - Integrated tools for better team collaboration:
+  - Whiteboard - Visual collaboration space
+  - Documents - Share and collaborate on documents
+  - Polls - Create and respond to polls during meetings
+  - Chat - Send messages and share resources
+  - Notes - Take shared meeting notes
+  - Breakout Rooms - Create smaller discussion groups
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +44,42 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application uses a component-based architecture:
 
-## Learn More
+- `MainContainer` - The primary container orchestrating all components
+- `Header` - Displays meeting information and controls
+- `Sidebar` - Shows participants and collaboration tools
+- `VideoArea` - Displays video feeds from participants
+- `CollaborationTools` - Houses various collaboration features
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Video Conferencing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Multiple layout options
+- Active speaker detection
+- Audio/video mute controls
+- Display participant information
 
-## Deploy on Vercel
+### Collaboration Tools
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Whiteboard**: Collaborative drawing and diagramming
+- **Documents**: Share and edit documents in real-time
+- **Polls**: Create polls and view results instantly
+- **Chat**: Group and private messaging
+- **Notes**: Collaborative note-taking
+- **Breakout Rooms**: Create and manage separate discussion groups
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Enhancements
+
+- Integration with actual Zoom API
+- Screen sharing functionality
+- Recording and transcription features
+- Virtual backgrounds and visual effects
+- Enhanced security features
+
+## License
+
+This project is licensed under the MIT License.
