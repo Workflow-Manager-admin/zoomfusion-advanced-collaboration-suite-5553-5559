@@ -5,6 +5,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { MainContainerProps, Participant, CollaborationTool, MeetingInfo } from '@/types/zoomfusion';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -143,10 +144,13 @@ export default function MainContainer({ className = '' }: MainContainerProps) {
     <div className={`flex flex-col h-screen w-full bg-neutral-950 text-white ${className}`}>
       {isLoading ? (
         <div className="flex flex-col items-center justify-center h-screen w-full">
-          <img 
+          <Image 
             src="/zoomfusion-logo.svg" 
             alt="ZoomFusion Logo" 
-            className="h-16 mb-6 animate-pulse" 
+            width={200}
+            height={64}
+            className="mb-6 animate-pulse" 
+            priority
           />
           <div className="text-xl font-semibold mb-4">Loading ZoomFusion</div>
           <div className="w-64 h-2 bg-neutral-800 rounded-full overflow-hidden">
