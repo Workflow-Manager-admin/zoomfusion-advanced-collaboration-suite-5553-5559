@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ZoomFusion: Advanced Collaboration Suite",
   description: "A comprehensive Zoom integration app that enhances video conferencing with advanced collaboration and productivity features.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
